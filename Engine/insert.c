@@ -3394,7 +3394,7 @@ static INSDS *instantiate(CSOUND *csound, INSTRTXT *tp, int32_t insno,
     OPCODINFO* info = tp->opcode_info;
     size_t pcnt = sizeof(OPCOD_IOBUFS) +
       sizeof(cs_float*) * (info->inchns + info->outchns);
-    ip->opcod_iobufs = (void*) csound->Malloc(csound, pcnt);
+    ip->opcod_iobufs = (void*) csound->Calloc(csound, pcnt);
   }
 
   /* gbloffbas = csound->globalVarPool; */
