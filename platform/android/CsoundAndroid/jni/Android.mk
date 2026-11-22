@@ -303,6 +303,7 @@ $(CSOUND_SRC_ROOT)/Opcodes/emugens/scugens.c \
 $(CSOUND_SRC_ROOT)/Opcodes/stm.c \
 $(CSOUND_SRC_ROOT)/Engine/csound_orc_semantics.c \
 $(CSOUND_SRC_ROOT)/Engine/csound_orc_structs.c \
+$(CSOUND_SRC_ROOT)/Engine/csound_pre_shared.c \
 $(CSOUND_SRC_ROOT)/Engine/csound_orc_expressions.c \
 $(CSOUND_SRC_ROOT)/Engine/csound_orc_optimize.c \
 $(CSOUND_SRC_ROOT)/Engine/csound_orc_compile.c \
