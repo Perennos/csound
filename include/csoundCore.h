@@ -1794,6 +1794,8 @@ struct CSOUND_ {
   CORFIL *scstr;                                             /* score reader corfile */
   CORFIL *expanded_orc;                                      /* preprocessed orchestra source */
   CORFIL *expanded_sco;                                      /* preprocessed score source */
+  void *reserved_playscore;                                  /* reserved for ABI layout compatibility */
+  FILE *reserved_scoreout;                                   /* reserved for ABI layout compatibility */
   EVTBLK *currevent;                                         /* current event block */
   EVTBLK evt;                                                /* working event block */
   EVTBLK *init_event;                                        /* event used during initialisation */
@@ -1821,6 +1823,7 @@ struct CSOUND_ {
   char *opcodedir;                                           /* opcode search directory */
   int32_t aftouch;                                           /* default MIDI touch value */
   int32_t keep_tmp;                                          /* keep temporary files */
+  uint32_t reserved_tempStatus;                              /* reserved for ABI layout compatibility */
   void *evtFuncChain;                                        /* realtime event function chain */
   EVTNODE *OrcTrigEvts;                                      /* events triggered by the orchestra awaiting start */
   EVTNODE *freeEvtNodes;                                     /* free list of event nodes */
@@ -1938,6 +1941,9 @@ struct CSOUND_ {
   struct dag_t *multiThreadedDag;                            /* parallel execution graph */
   void *barrier1;                                            /* parallel execution barrier 1 */
   void *barrier2;                                            /* parallel execution barrier 2 */
+  void *reserved_instCurr;                                   /* reserved for ABI layout compatibility */
+  void *reserved_instRoot;                                   /* reserved for ABI layout compatibility */
+  int32_t reserved_inInstr;                                  /* reserved for ABI layout compatibility */
   int32_t dag_changed;                                       /* execution graph changed flag */
   int32_t dag_num_active;                                    /* number of active graph nodes */
   INSDS **dag_task_map;                                      /* graph node to instrument instance map */
@@ -2031,6 +2037,8 @@ struct CSOUND_ {
   EVTNODE *rewind_events;                                    /* what the asking inits scheduled after they asked: the rewind puts it in */
   volatile long rewind_asking;                               /* realtime init items that asked for a rewind and run: no line is read */
   volatile long score_rewinds_done;                          /* score_rewinds when the last rewind was done: one runs while they differ */
+  /* Append new private fields at the very end to preserve CSOUND ABI offsets. */
+  ORC_DELIMITER_SCAN orcScan;                                /* stateful scanner for live orchestra blocks */
   /*struct CSOUND_ **self;*/
   /**@}*/
 #endif /* __BUILDING_LIBCSOUND */
