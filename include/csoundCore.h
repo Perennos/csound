@@ -2039,6 +2039,7 @@ struct CSOUND_ {
   volatile long score_rewinds_done;                          /* score_rewinds when the last rewind was done: one runs while they differ */
   /* Append new private fields at the very end to preserve CSOUND ABI offsets. */
   ORC_DELIMITER_SCAN orcScan;                                /* stateful scanner for live orchestra blocks */
+  int32_t lineventDiscardLine;                               /* discarding remainder of oversized -L line */
   /*struct CSOUND_ **self;*/
   /**@}*/
 #endif /* __BUILDING_LIBCSOUND */
